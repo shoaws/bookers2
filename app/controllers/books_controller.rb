@@ -7,20 +7,20 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-      redirect_to @book.id_path
+      redirect_to book_path(@book.id)
     else
       render "user/show"
     end
   end
 
   def index
+    @books = Book.all
   end
 
   def edit
   end
 
   def show
-    @user = User.find(params[:id])
     @book = Book.find(params[:id])
     
   end
