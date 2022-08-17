@@ -4,12 +4,14 @@ class BooksController < ApplicationController
   end
 
   def create
+    @user = current_user
+    @books = Book.all
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
       redirect_to book_path(@book.id)
     else
-      render "user/show"
+      render "books/index"
     end
   end
 
