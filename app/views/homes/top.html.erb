@@ -8,6 +8,7 @@
 
             <div class="btn-wrapper col-10 mx-auto">
                 <% if user_signed_in? %>
+
                 <div class="row">
                     <%= link_to user_path(current_user.id), class: "btn btn-info btn-sm btn-block mb-3 sign_in text-white text-decoration-none" do %>
                     Log in
@@ -19,15 +20,12 @@
                     <% end %>
                 </div>
                 <% else %>
+
                 <div class="row">
-                    <%= link_to new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in text-white text-decoration-none" do %>
-                    Log in
-                    <% end %>
+                    <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in text-white text-decoration-none" %>
                 </div>
                 <div class="row">
-                    <%= link_to new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up text-white text-decoration-none" do %>
-                    Sign up
-                    <% end %>
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up text-white text-decoration-none" %>
                 </div>
                 <% end %>
             </div>
